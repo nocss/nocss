@@ -45,7 +45,7 @@ css({
 
 ## Advantages
 * no parsing or compiling -> fast as greased lightning
-* stay DRY by using the Javascript to describe your stylesheets
+* stay DRY by using Javascript to describe your stylesheets
 * avoid adding another language to your stack
   * focus your competencies
   * take on less complexity
