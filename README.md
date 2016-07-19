@@ -31,7 +31,7 @@ It also supports more advanced syntax, which you may be familiar with from other
 css({
   'input,button': {
     '&.really-big': {
-      'transform': 'scale3d(2.0, 2.0, 2.0)',
+      'transform': 'scale3d(2.0, 2.0, 2.0)'
     },
     '&:focus': {
       'opacity': 0.5
