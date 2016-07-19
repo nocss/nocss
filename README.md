@@ -4,7 +4,7 @@ A pure Javascript sass/less/stylus alternative. Why compile when you can Javascr
 ## Summary
 Pure CSS is unacceptable. However, after trying all of the css pre-processors / frameworks, we realized that Javascript itself is perfectly acceptable for describing css, and in fact does a better job with less headache. This was convenient, since we were already using Javascript everywhere else, and we quite liked it.
 
-Here's an example of o3-css in action:
+Here's an example the basics in action:
 
 ```javascript
 import css from 'o3-css';
@@ -24,6 +24,24 @@ const styleString = css({
 The whole library exports a single function css(), which produces a valid style string that the browser will understand.
 
 You can serve this string from your web server as a css file (this is ideal when you're running NodeJS on the backend), write it inline into your html document, add it dynamically to a style tag, inline it directly on to an element at runtime, or anything else you desire.
+
+It also supports more advanced syntax, which you may be familiar with from other pre-processors:
+
+```javascript
+css({
+  'input,button': {
+    '&.really-big': {
+      'transform': 'scale3d(2.0, 2.0, 2.0)',
+    },
+    '&:focus': {
+      'opacity': 0.5
+    },
+    '&:before,&:after': {
+      ...
+    }
+  }
+});
+```
 
 ## Advantages
 * stay DRY by using the full power of Javascript in describing your stylesheets
