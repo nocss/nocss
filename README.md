@@ -53,3 +53,8 @@ css({
   * + many more advantages
 * easily share code between your application logic and styling code (Yes, this is inevitable, despite what the purists say. Why? Because stylesheets have limitations, and eventually you will have UI concerns in your Javascript code, so why not future-proof yourself by choosing a real language.)
 * it's fun!
+
+
+## Sources
+* vendor prefix implementation: http://peter.sh/experiments/vendor-prefixed-css-property-overview/
+* general CSS implementation: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
