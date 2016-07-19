@@ -28,5 +28,9 @@ You can serve this string from your web server as a css file (this is ideal when
 The main advantages are:
 * you get the full power of Javascript in describing your stylesheets, which lets you stay DRY
 * you don't have to add another language to your stack
-* easy code-sharing between your regular Javsascript code and styling code (ie, avoid duplicating styling variables)
+  * focusing of competencies
+  * less complexity
+  * less context-switching
+  * + many many many more advantages
+* easy code-sharing between your application logic and styling code (yes, this inevitably becomes useful despite what the purists say, because stylesheets have limitations and eventually you will have UI concerns in your Javascript code, so learn to love it)
 * it's fun!
