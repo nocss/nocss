@@ -7,6 +7,8 @@ Pure CSS is unacceptable. However, after trying all of the css pre-processors / 
 Here's an example of o3-css in action:
 
 ```javascript
+import css from 'o3-css';
+
 // Generate a valid css string (prefix expansions are handled for you)
 const styleString = css({
   'body': {
