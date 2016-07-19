@@ -21,7 +21,7 @@ const styleString = css({
 
 The whole library exports a single function css(), which produces a valid style string that the browser will understand.
 
-You can serve this string from your web server as a css file (this is ideal when you're running NodeJS on the backend), write it inline into your html document, add it dynamically to a <style> tag, inline it directly on to an element at runtime, or anything else you desire.
+You can serve this string from your web server as a css file (this is ideal when you're running NodeJS on the backend), write it inline into your html document, add it dynamically to a style tag, inline it directly on to an element at runtime, or anything else you desire.
 
 The main advantages are:
 * you get the full power of Javascript in describing your stylesheets, which lets you stay DRY
