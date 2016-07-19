@@ -26,11 +26,11 @@ The whole library exports a single function css(), which produces a valid style 
 You can serve this string from your web server as a css file (this is ideal when you're running NodeJS on the backend), write it inline into your html document, add it dynamically to a style tag, inline it directly on to an element at runtime, or anything else you desire.
 
 ## Advantages
-* you get the full power of Javascript in describing your stylesheets, which lets you stay DRY
-* you don't have to add another language to your stack
-  * focusing of competencies
-  * less complexity
-  * less context-switching
-  * + many many many more advantages
-* easy code-sharing between your application logic and styling code (Yes, this is inevitable, despite what the purists say. Why? Because stylesheets have limitations, and eventually you will have UI concerns in your Javascript code, so why not future-proof yourself by choosing a real language.)
+* stay DRY by using the full power of Javascript in describing your stylesheets
+* avoid adding another language to your stack
+  * focus your competencies
+  * take on less complexity
+  * do less context-switching
+  * + many more advantages
+* easily share code between your application logic and styling code (Yes, this is inevitable, despite what the purists say. Why? Because stylesheets have limitations, and eventually you will have UI concerns in your Javascript code, so why not future-proof yourself by choosing a real language.)
 * it's fun!
