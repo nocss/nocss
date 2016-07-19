@@ -1,0 +1,22 @@
+{
+  "name": "o3js-css",
+  "version": "0.0.1",
+  "description": "A sass/less/stylus alternative in pure Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/o3js/css.git"
+  },
+  "keywords": [
+    "css"
+  ],
+  "author": "Gabriel Silk <gabesilk@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/o3js/css/issues"
+  },
+  "homepage": "https://github.com/o3js/css#readme"
+}
