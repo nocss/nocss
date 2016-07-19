@@ -4,7 +4,7 @@ A pure Javascript sass/less/stylus alternative. Why compile when you can Javascr
 ## Summary
 Pure CSS is unacceptable. However, after trying all of the css pre-processors / frameworks, we realized that Javascript itself is perfectly acceptable for describing css, and in fact does a better job with less headache. This was convenient, since we were already using Javascript everywhere else, and we quite liked it.
 
-Here's an example the basics in action:
+Here's a basic example:
 
 ```javascript
 import css from 'o3-css';
