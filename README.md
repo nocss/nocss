@@ -56,5 +56,5 @@ css({
 
 
 ## Sources
-* vendor prefix implementation: http://peter.sh/experiments/vendor-prefixed-css-property-overview/
-* general CSS implementation: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+* vendor prefixes: http://peter.sh/experiments/vendor-prefixed-css-property-overview/
+* CSS reference: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
