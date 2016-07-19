@@ -56,5 +56,7 @@ css({
 
 
 ## Sources
-* vendor prefixes: http://peter.sh/experiments/vendor-prefixed-css-property-overview/
+* vendor prefix overview: https://www.sitepoint.com/web-foundations/vendor-specific-properties/
+* vendor prefix data: http://peter.sh/experiments/vendor-prefixed-css-property-overview/
 * CSS reference: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+* raw caniuse database: https://github.com/Fyrd/caniuse
