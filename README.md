@@ -32,5 +32,5 @@ You can serve this string from your web server as a css file (this is ideal when
   * less complexity
   * less context-switching
   * + many many many more advantages
-* easy code-sharing between your application logic and styling code (yes, this inevitably becomes useful despite what the purists say, because stylesheets have limitations and eventually you will have UI concerns in your Javascript code, so learn to love it)
+* easy code-sharing between your application logic and styling code (Yes, this is inevitable, despite what the purists say. Why? Because stylesheets have limitations, and eventually you will have UI concerns in your Javascript code, so why not future-proof yourself by choosing a real language.)
 * it's fun!
