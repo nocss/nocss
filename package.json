@@ -1,5 +1,5 @@
 {
-  "name": "o3js-css",
+  "name": "o3-css",
   "version": "0.0.1",
   "description": "A sass/less/stylus alternative in pure Javascript",
   "main": "index.js",
