@@ -25,7 +25,7 @@ The whole library exports a single function css(), which produces a valid style 
 
 You can serve this string from your web server as a css file (this is ideal when you're running NodeJS on the backend), write it inline into your html document, add it dynamically to a style tag, inline it directly on to an element at runtime, or anything else you desire.
 
-It also supports more advanced syntax, which you may be familiar with from other pre-processors:
+It also supports syntactic sugar such as "," (split) in key names and the "&" (concatenate) operator:
 
 ```javascript
 css({
