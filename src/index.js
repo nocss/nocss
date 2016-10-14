@@ -1,20 +1,6 @@
 const _ = require('lodash');
 
-const keyExpansions = {
-  'align-self': [
-    'webkit-align-self',
-    '-webkit-align-self',
-    '-moz-align-self',
-    '-o-align-self',
-  ],
-};
-
-const keyValExpansions = {
-  'display:flex': [
-    {'display': '-webkit-flex'},
-    {'display': '-ms-flexbox'},
-  ],
-};
+const { keyExpansions, keyValExpansions } = require('./expansions');
 
 function toCSSRecursive(obj, ns, result) {
   _.each(
