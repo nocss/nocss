@@ -5,7 +5,8 @@ const { keyExpansions, keyValExpansions } = require('./expansions');
 function toCSSRecursive(obj, ns, result) {
   _.each(
     _.pickBy(obj, _.isPlainObject),
-    (val, key) => toCSSRecursive(val, _.flatten([ns, key]), result));
+    (val, key) => _.each(
+      key.split(','), ks => toCSSRecursive(val, _.flatten([ns, ks]), result)));
   _.each(
     _.omitBy(obj, _.isPlainObject),
     (val, key) => {

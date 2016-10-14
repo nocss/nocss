@@ -47,13 +47,25 @@ module.exports = [
   ],
 
   ['Grouping',
+
    ['Basic grouping', () => {
      assert.equal(css({
        'h1,h2': {
          'color': 'blue',
        },
-     }), 'h1,h2 {\n  color: blue;\n}');
+     }), 'h1 {\n  color: blue;\n}\nh2 {\n  color: blue;\n}');
    }],
+
+   ['Grouping with "&" operator and pseudo-selector', () => {
+     assert.equal(css({
+       'h1': {
+         '&:before,&:after': {
+           'color': 'green',
+         },
+       },
+     }), 'h1:before {\n  color: green;\n}\nh1:after {\n  color: green;\n}');
+   }],
+
   ],
 
 ];
