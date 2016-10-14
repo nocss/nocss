@@ -4,7 +4,7 @@
   "description": "A sass/less/stylus alternative in pure Javascript",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "./runtests.sh"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/o3js/css/issues"
   },
-  "homepage": "https://github.com/o3js/css#readme"
+  "homepage": "https://github.com/o3js/css#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "jsdom": "^9.4.1",
+    "mocha": "^2.5.3",
+    "mocha-brackets": "file:../mocha-brackets"
+  }
 }

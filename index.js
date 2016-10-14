@@ -1,5 +1,0 @@
-{
-  body: {
-    backgroundColor: 'black'
-  }
-}
