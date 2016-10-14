@@ -56,13 +56,6 @@ module.exports = [
    }],
   ],
 
-  // ['Concatenation',
-  //  ['Basics', () => {
-  //    assert(css({
-  //      '
-  //    }
-  //  }],
-  // ],
 ];
 
 // // valid selectors
