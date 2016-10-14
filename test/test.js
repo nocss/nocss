@@ -21,6 +21,28 @@ module.exports = [
      }), 'body {\n  -moz-transform: translate3d();\n}');
    }],
 
+   ['Pseudo-selectors', () => {
+     assert.equal(css({
+       'div:before': {
+         'color': 'red',
+       },
+     }), 'div:before {\n  color: red;\n}');
+     assert.equal(css({
+       'div': {
+         '&:before': {
+           'color': 'red',
+         },
+       },
+     }), 'div:before {\n  color: red;\n}');
+   }],
+
+   ['Star selector', () => {
+     assert.equal(css({
+       '*': {
+         'display': 'none',
+       },
+     }), '* {\n  display: none;\n}');
+   }],
 
   ],
 
