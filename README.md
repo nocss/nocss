@@ -2,9 +2,11 @@
 A sass/less/stylus alternative in pure Javascript.
 
 ## Background
-Pure CSS is hard to maintain. That's why there are a host of css pre-processing frameworks out there. The problem is that in order to adopt one, you generally have to adopt a new language, add a new dependency to your build pipeline, etc. We thought it would be neat to just write our CSS in Javascript, and this is the result.
+Pure CSS is hard to maintain. This has given rise to a plethora of frameworks, including sass, less, stylus, PostCSS, etc. These frameworks are great, but we saw room for simplification, so we wrote this library, which is 35 lines long (excluding vendor prefix data), and exports a single function.
 
-Here's a basic example:
+Because of its diminutive size and clear coding style, it's easy to see how the library works and to augment it to your needs. Our goal was to make the simplest, lightest css processor, which could be used at compile-time OR run-time.
+
+The library exports just one function: "css". Here's an example of its usage:
 
 ```javascript
 import css from 'o3-css';
@@ -15,7 +17,7 @@ const styleString = css({
     'background-color': 'red',
     'ul': {
       'padding': '1em',
-      'transform': 'translate3d(-10px, 0, 0)'
+      'display': 'flex'
     }
   }
 });
@@ -23,9 +25,22 @@ const styleString = css({
 console.log(styleString);
 ```
 
-The whole library exports a single function css(), which produces a valid style string that the browser will understand. Browser-specific prefixes are automatically handled for you.
+This example will output the following string:
 
-You can serve this string from your web server as a css file (this is ideal when you're running NodeJS on the backend), write it inline into your html document, add it dynamically to a style tag, inline it directly on to an element at runtime, or anything else you desire.
+```
+body {
+  background-color: red;
+}
+body ul {
+  padding: 1em,
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+```
+
+As you can see, vendor prefixes are handled for you.
 
 It also supports syntactic sugar such as the "&" (concatenate) operator:
 
@@ -44,18 +59,6 @@ css({
   }
 });
 ```
-
-## Advantages
-* not compiled
-* stay DRY by using Javascript to describe your stylesheets
-* avoid adding another language to your stack
-  * focus your competencies
-  * take on less complexity
-  * do less context-switching
-  * + many more advantages
-* easily share code between your application logic and styling code (Yes, this is inevitable, despite what the purists say. Why? Because stylesheets have limitations, and eventually you will have UI concerns in your Javascript code, so why not future-proof yourself by choosing a real language.)
-* it's fun!
-
 
 ## Sources
 * vendor prefix overview: https://www.sitepoint.com/web-foundations/vendor-specific-properties/
