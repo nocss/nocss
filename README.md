@@ -1,8 +1,8 @@
 # o3-css
-A pure Javascript sass/less/stylus alternative. Why compile when you can Javascript?
+A sass/less/stylus alternative in pure Javascript.
 
-## Summary
-Pure CSS is unacceptable. However, after trying all of the css pre-processors / frameworks, we realized that Javascript itself is perfectly acceptable for describing css, and in fact does a better job with less headache. This was convenient, since we were already using Javascript everywhere else, and we quite liked it.
+## Background
+Pure CSS is hard to maintain. That's why there are a host of css pre-processing frameworks out there. The problem is that in order to adopt one, you generally have to adopt a new language, add a new dependency to your build pipeline, etc. We thought it would be neat to just write our CSS in Javascript, and this is the result.
 
 Here's a basic example:
 
@@ -19,13 +19,15 @@ const styleString = css({
     }
   }
 });
+
+console.log(styleString);
 ```
 
-The whole library exports a single function css(), which produces a valid style string that the browser will understand.
+The whole library exports a single function css(), which produces a valid style string that the browser will understand. Browser-specific prefixes are automatically handled for you.
 
 You can serve this string from your web server as a css file (this is ideal when you're running NodeJS on the backend), write it inline into your html document, add it dynamically to a style tag, inline it directly on to an element at runtime, or anything else you desire.
 
-It also supports syntactic sugar such as "," (split) in key names and the "&" (concatenate) operator:
+It also supports syntactic sugar such as the "&" (concatenate) operator:
 
 ```javascript
 css({
@@ -44,7 +46,7 @@ css({
 ```
 
 ## Advantages
-* no parsing or compiling -> fast as greased lightning
+* not compiled
 * stay DRY by using Javascript to describe your stylesheets
 * avoid adding another language to your stack
   * focus your competencies
