@@ -1,4 +1,4 @@
-# o3-css
+# Summary
 A sass/less/stylus alternative in pure Javascript.
 
 ## Background
