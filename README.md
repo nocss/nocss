@@ -78,6 +78,9 @@ css({
 });
 ```
 
+## Roadmap
+The only change we have planned at the moment is to add the ability to augment the behavior of the css processor without modifying core code -- ie, plugins. Also, the vendor prefix expansion data is incomplete -- we are planning to pull in data from caniuse to round out this portion of the library.
+
 ## Sources
 * vendor prefix overview: https://www.sitepoint.com/web-foundations/vendor-specific-properties/
 * vendor prefix data: http://peter.sh/experiments/vendor-prefixed-css-property-overview/
