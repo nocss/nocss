@@ -25,6 +25,24 @@ const styleString = css({
 console.log(styleString);
 ```
 
+As you can see, style sheets are represented by hash maps. If you come from a sass or less background, you might be wondering "what about mixins?". Well, it's just Javascript, so you can add a function:
+
+```
+const flexPad = () => {
+  return {
+    'padding': '1em',
+    'display': 'flex'
+  };
+}
+
+const styleString = css({
+  'body': {
+    'background-color': 'red',
+    'ul': flexPad()
+  }
+});
+```
+
 This example will output the following string:
 
 ```
