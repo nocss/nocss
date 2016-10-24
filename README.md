@@ -1,12 +1,12 @@
 # Summary
-A sass/less/stylus alternative in pure Javascript.
+Write css using Javascript.
 
 ## Background
-Pure CSS is hard to maintain. This has given rise to a plethora of frameworks, including sass, less, stylus, PostCSS, etc. These frameworks are great, but we saw room for simplification, so we wrote this library, which is 35 lines long (excluding vendor prefix data), and exports a single function.
+Pure css is hard to maintain. This has given rise to a plethora of frameworks, including sass, less, stylus, PostCSS, etc. These frameworks are great, but we saw room for simplification, so we wrote this library, which is 35 lines long (excluding vendor prefix data), and exports a single function.
 
-Because of its diminutive size and clear coding style, it's easy to see how the library works and to augment it to your needs. Our goal was to make the simplest, lightest css processor, which could be used at compile-time OR run-time.
+Because of its diminutive size and clear coding style, it's easy to see how the library works and to augment it to your needs. Our goal was to make the simplest, lightest css processor, which could be used at compile-time or run-time.
 
-The library exports just one function: "css". Here's an example of its usage:
+The library exports just one function: "css", which takes an object and returns a string. Here's an example of its usage:
 
 ```javascript
 import css from 'o3-css';
