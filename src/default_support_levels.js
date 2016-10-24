@@ -1,0 +1,18 @@
+module.exports = {
+  'ie': '8',
+  'edge': '12',
+  'firefox': '43',
+  'chrome': '41',
+  'safari': '8',
+  'opera': '38',
+  'ios_saf': '7.0-7.1',
+  'op_mini': null,
+  'android': '4.1',
+  'bb': null,
+  'op_mob': null,
+  'and_chr': '53',
+  'and_ff': '49',
+  'ie_mob': '10',
+  'and_uc': '',
+  'samsung': '',
+};
