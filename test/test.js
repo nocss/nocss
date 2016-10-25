@@ -1,5 +1,6 @@
 const css = require('../src');
 const assert = require('chai').assert;
+const _ = require('lodash');
 
 module.exports = [
 
@@ -11,14 +12,6 @@ module.exports = [
          'background-color': 'red',
        },
      }), 'body {\n  background-color: red;\n}');
-   }],
-
-   ['Property name that begins with "-"', () => {
-     assert.equal(css({
-       'body': {
-         '-moz-transform': 'translate3d()',
-       },
-     }), 'body {\n  -moz-transform: translate3d();\n}');
    }],
 
    ['Pseudo-selectors', () => {
@@ -64,6 +57,26 @@ module.exports = [
          },
        },
      }), 'h1:before {\n  color: green;\n}\nh1:after {\n  color: green;\n}');
+   }],
+
+  ],
+
+  ['Validation',
+
+   ['Unknown property name', () => {
+     assert.throws(_.partial(css, {
+       'h1': {
+         'notreal': '100%',
+       },
+     }));
+   }],
+
+   ['Using a vendor prefix', () => {
+     assert.throws(_.partial(css, {
+       'body': {
+         '-moz-transform': 'translate3d()',
+       },
+     }));
    }],
 
   ],

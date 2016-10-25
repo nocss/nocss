@@ -2,6 +2,8 @@ const _ = require('lodash');
 
 const { keyExpansions, keyValExpansions } = require('./expansions');
 
+const sm = require('./support_matrix');
+
 function toCSSRecursive(obj, ns, result) {
   _.each(
     _.pickBy(obj, _.isPlainObject),
@@ -10,6 +12,7 @@ function toCSSRecursive(obj, ns, result) {
   _.each(
     _.omitBy(obj, _.isPlainObject),
     (val, key) => {
+      if (!sm[key]) throw new Error('Unknown property name "' + key + '"');
       const oval = keyExpansions[key]
             ? _.map(keyExpansions[key], nk => ({[nk]: val}))
             : (keyValExpansions[key + ':' + val]) || [{[key]: val}];
