@@ -1,6 +1,6 @@
 {
   "name": "sjss",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple Javascript Stylesheets -- write CSS in Javascript",
   "main": "index.js",
   "scripts": {
