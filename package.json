@@ -1,7 +1,7 @@
 {
   "name": "sjss",
   "version": "0.0.1",
-  "description": "A sass/less/stylus alternative in pure Javascript",
+  "description": "Simple Javascript Stylesheets -- write CSS in Javascript",
   "main": "index.js",
   "scripts": {
     "test": "./runtests.sh"
