@@ -1,5 +1,5 @@
 {
-  "name": "o3-css",
+  "name": "sjss",
   "version": "0.0.1",
   "description": "A sass/less/stylus alternative in pure Javascript",
   "main": "index.js",
@@ -23,6 +23,6 @@
     "chai": "^3.5.0",
     "jsdom": "^9.4.1",
     "mocha": "^2.5.3",
-    "mocha-brackets": "file:../mocha-brackets"
+    "mocha-brackets": "0.0.1"
   }
 }
