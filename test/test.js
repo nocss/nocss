@@ -1,4 +1,4 @@
-const css = require('../src');
+const render = require('../src').render;
 const assert = require('chai').assert;
 
 module.exports = [
@@ -6,7 +6,7 @@ module.exports = [
   ['Basics',
 
    ['Single selector and attribute', () => {
-     assert.equal(css({
+     assert.equal(render({
        'body': {
          'background-color': 'red',
        },
@@ -14,7 +14,7 @@ module.exports = [
    }],
 
    ['Property name that begins with "-"', () => {
-     assert.equal(css({
+     assert.equal(render({
        'body': {
          '-moz-transform': 'translate3d()',
        },
@@ -22,12 +22,12 @@ module.exports = [
    }],
 
    ['Pseudo-selectors', () => {
-     assert.equal(css({
+     assert.equal(render({
        'div:before': {
          'color': 'red',
        },
      }), 'div:before {\n  color: red;\n}');
-     assert.equal(css({
+     assert.equal(render({
        'div': {
          '&:before': {
            'color': 'red',
@@ -37,11 +37,27 @@ module.exports = [
    }],
 
    ['Star selector', () => {
-     assert.equal(css({
+     assert.equal(render({
        '*': {
          'display': 'none',
        },
      }), '* {\n  display: none;\n}');
+   }],
+
+   ['Empty string', () => {
+     assert.equal(render({
+       'body': {
+         'content': '',
+       },
+     }), 'body {\n  content: \'\';\n}');
+   }],
+
+   ['Multiple property values', () => {
+     assert.equal(render({
+       'div': {
+         'content': ['', 'none'],
+       },
+     }), 'div {\n  content: \'\';\n  content: none;\n}');
    }],
 
   ],
@@ -49,7 +65,7 @@ module.exports = [
   ['Grouping',
 
    ['Basic grouping', () => {
-     assert.equal(css({
+     assert.equal(render({
        'h1,h2': {
          'color': 'blue',
        },
@@ -57,7 +73,7 @@ module.exports = [
    }],
 
    ['Grouping with "&" operator and pseudo-selector', () => {
-     assert.equal(css({
+     assert.equal(render({
        'h1': {
          '&:before,&:after': {
            'color': 'green',
