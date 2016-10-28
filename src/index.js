@@ -19,7 +19,7 @@ function toCSSRecursive(obj, ns, result) {
     });
 }
 
-function toCSS(obj) {
+function render(obj) {
   const result = {};
   toCSSRecursive(obj, [], result);
   return _.map(result, (val, key) => {
@@ -33,4 +33,6 @@ function toCSS(obj) {
   }).join('\n');
 }
 
-module.exports = toCSS;
+module.exports = {
+  render,
+};
