@@ -1,18 +1,18 @@
 # Summary
-Write css using Javascript.
+Write CSS in Javascript. SJSS is a small, fast, js->css compiler with automatic enforcement of browser support levels. Need to support IE 8? SJSS will make sure you do.
 
 ## Background
-Pure css is hard to maintain. This has given rise to a plethora of frameworks, including sass, less, stylus, PostCSS, etc. These frameworks are great, but we saw room for simplification, so we wrote this library, which is 35 lines long (excluding vendor prefix data), and exports a single function.
+Pure CSS is hard to maintain. This has given rise to a plethora of frameworks, including sass, less, stylus, PostCSS, etc. These frameworks are great, but there was clearly room for simplification, both in language choice and feature set. We chose the most pressing problems with css, and wrote a library to address those, whose core is 35 lines long (excluding vendor prefix data).
 
-Because of its diminutive size and clear coding style, it's easy to see how the library works and to augment it to your needs. Our goal was to make the simplest, lightest css processor, which could be used at compile-time or run-time.
+Because of its diminutive size, you can embed it in your frontend code and render css at runtime. Because it's in ES6, it's easy to debug, see how the library works and to augment it to your needs. The goal was to make the simplest, lightest css processor, which could be used at compile-time or run-time.
 
-The library exports just one function: "css", which takes an object and returns a string. Here's an example of its usage:
+Here's an example of sjss in action:
 
 ```javascript
-import css from 'o3-css';
+const sjss = require('sjss');
 
 // Generate a valid css string (prefix expansions are handled for you)
-const styleString = css({
+const styleString = sjss.render({
   'body': {
     'background-color': 'red',
     'ul': {
@@ -35,7 +35,7 @@ const flexPad = () => {
   };
 }
 
-const styleString = css({
+const styleString = sjss.render({
   'body': {
     'background-color': 'red',
     'ul': flexPad()
@@ -63,7 +63,7 @@ As you can see, vendor prefixes are handled for you.
 It also supports syntactic sugar such as the "&" (concatenate) operator:
 
 ```javascript
-css({
+sjss.render({
   'input,button': {
     '&.really-big': {
       'transform': 'scale3d(2.0, 2.0, 2.0)'
@@ -77,9 +77,6 @@ css({
   }
 });
 ```
-
-## Roadmap
-The only change we have planned at the moment is to add the ability to augment the behavior of the css processor without modifying core code -- ie, plugins. Also, the vendor prefix expansion data is incomplete -- we are planning to pull in data from caniuse to round out this portion of the library.
 
 ## Sources
 * vendor prefix overview: https://www.sitepoint.com/web-foundations/vendor-specific-properties/
