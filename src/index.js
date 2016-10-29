@@ -1,8 +1,18 @@
 const _ = require('lodash');
+const resetFn = require('./reset');
 
 const { keyExpansions, keyValExpansions } = require('./expansions');
 
 const sm = require('./support_matrix');
+
+function throwKeyError(key) {
+  if (key[0] === '-') {
+    throw new Error('Unsupported property name "' + key + '", '
+                    + 'did you use a vendor prefix unnecessarily?');
+  } else {
+    throw new Error('Unsupported property name "' + key + '"');
+  }
+}
 
 function toCSSRecursive(obj, ns, result) {
   _.each(
@@ -12,7 +22,7 @@ function toCSSRecursive(obj, ns, result) {
   _.each(
     _.omitBy(obj, _.isPlainObject),
     (val, key) => {
-      if (!sm[key]) throw new Error('Unknown property name "' + key + '"');
+      if (!sm[key]) throwKeyError(key);
       const oval = keyExpansions[key]
             ? _.map(keyExpansions[key], nk => ({[nk]: val}))
             : (keyValExpansions[key + ':' + val]) || [{[key]: val}];
@@ -22,18 +32,29 @@ function toCSSRecursive(obj, ns, result) {
     });
 }
 
-function toCSS(obj) {
+function transformValue(v) {
+  return (_.isString(v) && v.length === 0)
+    ? '\'\''
+    : v;
+}
+
+function render(obj) {
   const result = {};
   toCSSRecursive(obj, [], result);
   return _.map(result, (val, key) => {
     let inner = '';
     _.each(val, (v) => {
       _.each(v, (vi, ki) => {
-        inner += '  ' + ki + ': ' + vi + ';\n';
+        _.each(_.flatten([vi]), (vii) => {
+          inner += '  ' + ki + ': ' + transformValue(vii) + ';\n';
+        });
       });
     });
     return `${key} {\n${inner}}`;
   }).join('\n');
 }
 
-module.exports = toCSS;
+module.exports = {
+  render,
+  reset: () => render(resetFn()),
+};

@@ -194,7 +194,7 @@ module.exports = {
   }],
   // 'clip',
   'color': true,
-  // 'content',
+  'content': true,
   // 'counter-increment',
   // 'counter-reset',
   // 'cursor',

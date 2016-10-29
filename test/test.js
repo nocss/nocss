@@ -1,4 +1,4 @@
-const css = require('../src');
+const render = require('../src').render;
 const assert = require('chai').assert;
 const _ = require('lodash');
 
@@ -7,20 +7,28 @@ module.exports = [
   ['Basics',
 
    ['Single selector and attribute', () => {
-     assert.equal(css({
+     assert.equal(render({
        'body': {
          'background-color': 'red',
        },
      }), 'body {\n  background-color: red;\n}');
    }],
 
+   ['Property name that begins with "-"', () => {
+     assert.throws(_.partial(render, {
+       'body': {
+         '-moz-transform': 'translate3d()',
+       },
+     }, 'body {\n  -moz-transform: translate3d();\n}'));
+   }],
+
    ['Pseudo-selectors', () => {
-     assert.equal(css({
+     assert.equal(render({
        'div:before': {
          'color': 'red',
        },
      }), 'div:before {\n  color: red;\n}');
-     assert.equal(css({
+     assert.equal(render({
        'div': {
          '&:before': {
            'color': 'red',
@@ -30,11 +38,27 @@ module.exports = [
    }],
 
    ['Star selector', () => {
-     assert.equal(css({
+     assert.equal(render({
        '*': {
          'display': 'none',
        },
      }), '* {\n  display: none;\n}');
+   }],
+
+   ['Empty string', () => {
+     assert.equal(render({
+       'body': {
+         'content': '',
+       },
+     }), 'body {\n  content: \'\';\n}');
+   }],
+
+   ['Multiple property values', () => {
+     assert.equal(render({
+       'div': {
+         'content': ['', 'none'],
+       },
+     }), 'div {\n  content: \'\';\n  content: none;\n}');
    }],
 
   ],
@@ -42,7 +66,7 @@ module.exports = [
   ['Grouping',
 
    ['Basic grouping', () => {
-     assert.equal(css({
+     assert.equal(render({
        'h1,h2': {
          'color': 'blue',
        },
@@ -50,7 +74,7 @@ module.exports = [
    }],
 
    ['Grouping with "&" operator and pseudo-selector', () => {
-     assert.equal(css({
+     assert.equal(render({
        'h1': {
          '&:before,&:after': {
            'color': 'green',
@@ -64,7 +88,7 @@ module.exports = [
   ['Validation',
 
    ['Unknown property name', () => {
-     assert.throws(_.partial(css, {
+     assert.throws(_.partial(render, {
        'h1': {
          'notreal': '100%',
        },
@@ -72,7 +96,7 @@ module.exports = [
    }],
 
    ['Using a vendor prefix', () => {
-     assert.throws(_.partial(css, {
+     assert.throws(_.partial(render, {
        'body': {
          '-moz-transform': 'translate3d()',
        },
