@@ -1,7 +1,6 @@
 const assert = require('chai').assert;
 const _ = require('lodash');
 const sjss = require('../src')();
-sjss.use(require('../src/plugin/support'));
 sjss.use(require('../src/plugin/prefix'));
 
 module.exports = [
@@ -14,14 +13,6 @@ module.exports = [
          'background-color': 'red',
        },
      }), 'body {\n  background-color: red;\n}');
-   }],
-
-   ['Property name that begins with "-"', () => {
-     assert.throws(_.partial(sjss.render, {
-       'body': {
-         '-moz-transform': 'translate3d()',
-       },
-     }, 'body {\n  -moz-transform: translate3d();\n}'));
    }],
 
    ['Pseudo-selectors', () => {
@@ -92,29 +83,7 @@ module.exports = [
        },
      }), 'h1:before {\n  color: green;\n}\nh1:after {\n  color: green;\n}');
    }],
-
   ],
-
-  ['Validation',
-
-   ['Unknown property name', () => {
-     assert.throws(_.partial(sjss.render, {
-       'h1': {
-         'notreal': '100%',
-       },
-     }));
-   }],
-
-   ['Using a vendor prefix', () => {
-     assert.throws(_.partial(sjss.render, {
-       'body': {
-         '-moz-transform': 'translate3d()',
-       },
-     }));
-   }],
-
-  ],
-
 ];
 
 // // valid selectors

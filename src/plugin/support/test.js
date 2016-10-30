@@ -5,7 +5,23 @@ sjss.use(require('./index'));
 
 module.exports = [
   ['Support levels',
-   ['Value checking',
+   ['Key checking',
+    ['Unknown property name', () => {
+      assert.throws(_.partial(sjss.render, {
+        'h1': {
+          'notreal': '100%',
+        },
+      }));
+    }],
+    ['Property name that begins with "-"', () => {
+      assert.throws(_.partial(sjss.render, {
+        'body': {
+          '-moz-transform': 'translate3d()',
+        },
+      }, 'body {\n  -moz-transform: translate3d();\n}'));
+    }],
+   ],
+   ['Value checking',    
     ['Invalid value null', () => {
       assert.throws(_.partial(sjss.render, {
         'p': {
