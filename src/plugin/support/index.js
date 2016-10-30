@@ -16,6 +16,10 @@ function checkKey(key) {
 function checkKeyVal(key, val) {
   const entry = sm[key];
   if (entry === true) return;
+  if (_.isString(entry) && entry[0] === '~') {
+    checkKeyVal(entry.slice(1), val);
+    return;
+  }
   if (!_.find(entry, (subEntry) => {
     if (_.isRegExp(subEntry.values)) {
       return subEntry.values.test(val);

@@ -133,6 +133,30 @@ module.exports = [
      }));
    }],
 
+   ['Invalid numeral', () => {
+     assert.throws(_.partial(sjss.render, {
+       'p': {
+         'orphans': '5.4',
+       },
+     }));
+   }],
+
+   ['Valid aliased numeral', () => {
+     assert.equal(sjss.render({
+       'p': {
+         'widows': '5',
+       },
+     }), 'p {\n  widows: 5;\n}');
+   }],
+
+   ['Invalid aliased value', () => {
+     assert.throws(_.partial(sjss.render, {
+       'p': {
+         'widows': 'nada',
+       },
+     }));
+   }],
+
   ],
 
 ];

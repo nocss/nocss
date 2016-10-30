@@ -383,7 +383,7 @@ module.exports = {
     },
   }],
   'orphans': [{
-    values: /.*/,
+    values: /^(initial|inherit|unset|\d+)$/,
     support: {
       ie: '10',
       edge: '12',
