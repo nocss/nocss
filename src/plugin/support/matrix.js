@@ -13,7 +13,7 @@ module.exports = {
       opera: '24',
       ios_saf: '9.3',
       op_mini: false,
-      android: '4.4.3-4.4.4',
+      android: '4.4.3',
       bb: false,
       op_mob: '37',
       and_chr: '53',
@@ -55,7 +55,7 @@ module.exports = {
   }, {
     values: ['scroll', 'initial', 'inherit'],
     support: {
-      ios_saf: '5.0-5.1',
+      ios_saf: '5.0',
       op_mini: false,
       android: false,
       samsung: false,
@@ -68,7 +68,7 @@ module.exports = {
       chrome: '15',
       safari: '7',
       opera: '10.5',
-      ios_saf: '7.0-7.1',
+      ios_saf: '7.0',
       op_mini: false,
       android: '4.4',
     },
@@ -175,7 +175,7 @@ module.exports = {
       },
       opera: '10.5',
       ios_saf: {
-        version: '4.0-4.1',
+        version: '4.0',
         prefix: '-webkit-',
       },
       op_mini: false,
@@ -266,7 +266,7 @@ module.exports = {
       opera: false,
       ios_saf: false,
       op_mini: false,
-      android: false
+      android: false,
       bb: false,
       op_mob: false,
       and_chr: false,

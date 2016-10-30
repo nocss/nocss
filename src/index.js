@@ -1,18 +1,13 @@
 const _ = require('lodash');
 const resetFn = require('./reset');
 
-const { keyExpansions, keyValExpansions } = require('./expansions');
+const prefixPlugin = require('./plugin/prefix');
+const supportPlugin = require('./plugin/support');
 
-const sm = require('./support_matrix');
-
-function throwKeyError(key) {
-  if (key[0] === '-') {
-    throw new Error('Unsupported property name "' + key + '", '
-                    + 'did you use a vendor prefix unnecessarily?');
-  } else {
-    throw new Error('Unsupported property name "' + key + '"');
-  }
-}
+const plugins = [
+  supportPlugin,
+  prefixPlugin,
+];
 
 function toCSSRecursive(obj, ns, result) {
   _.each(
@@ -22,13 +17,13 @@ function toCSSRecursive(obj, ns, result) {
   _.each(
     _.omitBy(obj, _.isPlainObject),
     (val, key) => {
-      if (!sm[key]) throwKeyError(key);
-      const oval = keyExpansions[key]
-            ? _.map(keyExpansions[key], nk => ({[nk]: val}))
-            : (keyValExpansions[key + ':' + val]) || [{[key]: val}];
+      let processed = [{[key]: val}];
+      _.each(plugins, (p) => {
+        processed = p(processed);
+      });
       const nss = ns.join(' ').replace(/ &/g, '');
       if (!result[nss]) result[nss] = [];
-      _.each(oval, (v) => result[nss].push(v));
+      _.each(processed, (v) => result[nss].push(v));
     });
 }
 
