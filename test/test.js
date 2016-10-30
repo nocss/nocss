@@ -1,7 +1,5 @@
 const assert = require('chai').assert;
-const _ = require('lodash');
 const sjss = require('../src')();
-sjss.use(require('../src/plugin/prefix'));
 
 module.exports = [
 
@@ -52,15 +50,6 @@ module.exports = [
          'content': ['', 'none'],
        },
      }), 'div {\n  content: \'\';\n  content: none;\n}');
-   }],
-
-   ['Prefix expansions', () => {
-     assert.equal(sjss.render({
-       'div': {
-         'border-radius': '3px',
-       },
-     }), 'div {\n  border-radius: 3px;\n  -moz-border-radius: 3px;\n'
-                  + '  -webkit-border-radius: 3px;\n}');
    }],
   ],
 
