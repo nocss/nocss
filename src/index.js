@@ -46,8 +46,5 @@ module.exports = function sjss() {
     }).join('\n');
   }
 
-  return {
-    render,
-    use,
-  };
+  return { render, use };
 };
