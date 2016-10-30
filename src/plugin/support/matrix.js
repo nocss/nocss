@@ -62,6 +62,7 @@ module.exports = {
     },
   }],
   'background-clip': [{
+    values: /.*/,
     support: {
       ie: '9',
       firefox: '4',
@@ -95,6 +96,7 @@ module.exports = {
   }],
   'border-color': true,
   'border-image': [{
+    values: /.*/,
     support: {
       ie: '11',
       edge: '14',
@@ -124,6 +126,7 @@ module.exports = {
   'border-left-style': true,
   'border-left-width': true,
   'border-radius': [{
+    values: /.*/,
     support: {
       ie: '9',
       firefox: {
@@ -199,7 +202,7 @@ module.exports = {
     support: true,
   }],
   'clip': [{
-    values: [/.*/],
+    values: /.*/,
     support: {
       ie: '8',
       opera: '7',
@@ -208,7 +211,7 @@ module.exports = {
   'color': true,
   'content': true,
   'counter-increment': [{
-    values: [/.*/],
+    values: /.*/,
     support: {
       ie: '8',
       chrome: '4',
@@ -219,7 +222,7 @@ module.exports = {
   }],
   'counter-reset': '~counter-increment',
   'cursor': [{
-    values: [/.*/],
+    values: /.*/,
     support: {
       chrome: '5',
       ie: '5.5',
@@ -257,6 +260,7 @@ module.exports = {
   'font-family': true,
   'font-size': true,
   'font-size-adjust': {
+    values: /.*/,
     support: {
       ie: false,
       edge: false,
@@ -274,7 +278,7 @@ module.exports = {
       ie_mob: false,
       and_uc: false,
       samsung: false,
-    }
+    },
   },
   'font-stretch': [{
     values: ['ultra-condensed', 'extra-condensed', 'condensed',
@@ -311,7 +315,7 @@ module.exports = {
   'height': true,
   'left': true,
   'letter-spacing': [{
-    values: [/.*/],
+    values: /.*/,
     support: {
       ie: '9',
       edge: '12',
@@ -336,7 +340,7 @@ module.exports = {
   'list-style-image': true,
   'list-style-position': true,
   'list-style-type': [{
-    values: [/.*/],
+    values: /.*/,
     support: {
       ie: '4',
       opera: '3.5',
@@ -348,7 +352,7 @@ module.exports = {
   'margin-right': true,
   'margin-top': true,
   'max-height': [{
-    values: [/.*/],
+    values: /.*/,
     support: {
       ie: '7',
       safari: '2.0.2',
@@ -359,7 +363,7 @@ module.exports = {
   'min-height': '~max-height',
   'min-width': '~max-height',
   'opacity': [{
-    values: [/.*/],
+    values: /.*/,
     support: {
       ie: '9',
       edge: '12',
@@ -379,7 +383,7 @@ module.exports = {
     },
   }],
   'orphans': [{
-    values: [/.*/],
+    values: /.*/,
     support: {
       ie: '10',
       edge: '12',
@@ -399,7 +403,7 @@ module.exports = {
     },
   }],
   'outline': [{
-    values: [/.*/],
+    values: /.*/,
     support: {
       ie: '8',
       edge: false,
@@ -432,7 +436,7 @@ module.exports = {
   'padding-right': true,
   'padding-top': true,
   'page-break-after': [{
-    values: [/.*/],
+    values: /.*/,
     support: false,
   }],
   'page-break-before': '~page-break-after',
@@ -450,7 +454,7 @@ module.exports = {
     },
   }],
   'quotes': [{
-    values: [/.*/],
+    values: /.*/,
     support: {
       chrome: '11',
       ie: '8',
@@ -479,7 +483,7 @@ module.exports = {
       ie_mob: '10',
       and_uc: '9.9',
       samsung: '4',
-    }
+    },
   }],
   'text-align': [{
     values: ['left', 'right', 'center', 'justify'],
@@ -496,7 +500,7 @@ module.exports = {
   }],
   'top': true,
   'transform': [{
-    values: [/.*/],
+    values: /.*/,
     support: {
       ie: {
         version: '9',
@@ -540,12 +544,12 @@ module.exports = {
         version: '11',
         prefix: '-webkit',
       },
-      samsung: '4'
-    }
+      samsung: '4',
+    },
   }],
   'transform-origin': '~transform',
   'transition': [{
-    values: [/.*/],
+    values: /.*/,
     support: {
       ie: '10',
       edge: '12',
@@ -589,7 +593,7 @@ module.exports = {
         version: '11',
         prefix: '-webkit',
       },
-      samsung: '4'
+      samsung: '4',
     },
   }],
   'transition-delay': '~transition',

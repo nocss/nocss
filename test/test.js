@@ -1,13 +1,15 @@
-const render = require('../src').render;
 const assert = require('chai').assert;
 const _ = require('lodash');
+const sjss = require('../src')();
+sjss.use(require('../src/plugin/support'));
+sjss.use(require('../src/plugin/prefix'));
 
 module.exports = [
 
   ['Basics',
 
    ['Single selector and attribute', () => {
-     assert.equal(render({
+     assert.equal(sjss.render({
        'body': {
          'background-color': 'red',
        },
@@ -15,7 +17,7 @@ module.exports = [
    }],
 
    ['Property name that begins with "-"', () => {
-     assert.throws(_.partial(render, {
+     assert.throws(_.partial(sjss.render, {
        'body': {
          '-moz-transform': 'translate3d()',
        },
@@ -23,12 +25,12 @@ module.exports = [
    }],
 
    ['Pseudo-selectors', () => {
-     assert.equal(render({
+     assert.equal(sjss.render({
        'div:before': {
          'color': 'red',
        },
      }), 'div:before {\n  color: red;\n}');
-     assert.equal(render({
+     assert.equal(sjss.render({
        'div': {
          '&:before': {
            'color': 'red',
@@ -38,7 +40,7 @@ module.exports = [
    }],
 
    ['Star selector', () => {
-     assert.equal(render({
+     assert.equal(sjss.render({
        '*': {
          'display': 'none',
        },
@@ -46,7 +48,7 @@ module.exports = [
    }],
 
    ['Empty string', () => {
-     assert.equal(render({
+     assert.equal(sjss.render({
        'body': {
          'content': '',
        },
@@ -54,7 +56,7 @@ module.exports = [
    }],
 
    ['Multiple property values', () => {
-     assert.equal(render({
+     assert.equal(sjss.render({
        'div': {
          'content': ['', 'none'],
        },
@@ -62,7 +64,7 @@ module.exports = [
    }],
 
    ['Prefix expansions', () => {
-     assert.equal(render({
+     assert.equal(sjss.render({
        'div': {
          'border-radius': '3px',
        },
@@ -71,57 +73,67 @@ module.exports = [
    }],
   ],
 
-  // ['Grouping',
+  ['Grouping',
 
-  //  ['Basic grouping', () => {
-  //    assert.equal(render({
-  //      'h1,h2': {
-  //        'color': 'blue',
-  //      },
-  //    }), 'h1 {\n  color: blue;\n}\nh2 {\n  color: blue;\n}');
-  //  }],
+   ['Basic grouping', () => {
+     assert.equal(sjss.render({
+       'h1,h2': {
+         'color': 'blue',
+       },
+     }), 'h1 {\n  color: blue;\n}\nh2 {\n  color: blue;\n}');
+   }],
 
-  //  ['Grouping with "&" operator and pseudo-selector', () => {
-  //    assert.equal(render({
-  //      'h1': {
-  //        '&:before,&:after': {
-  //          'color': 'green',
-  //        },
-  //      },
-  //    }), 'h1:before {\n  color: green;\n}\nh1:after {\n  color: green;\n}');
-  //  }],
+   ['Grouping with "&" operator and pseudo-selector', () => {
+     assert.equal(sjss.render({
+       'h1': {
+         '&:before,&:after': {
+           'color': 'green',
+         },
+       },
+     }), 'h1:before {\n  color: green;\n}\nh1:after {\n  color: green;\n}');
+   }],
 
-  // ],
+  ],
 
-  // ['Validation',
+  ['Validation',
 
-  //  ['Unknown property name', () => {
-  //    assert.throws(_.partial(render, {
-  //      'h1': {
-  //        'notreal': '100%',
-  //      },
-  //    }));
-  //  }],
+   ['Unknown property name', () => {
+     assert.throws(_.partial(sjss.render, {
+       'h1': {
+         'notreal': '100%',
+       },
+     }));
+   }],
 
-  //  ['Using a vendor prefix', () => {
-  //    assert.throws(_.partial(render, {
-  //      'body': {
-  //        '-moz-transform': 'translate3d()',
-  //      },
-  //    }));
-  //  }],
+   ['Using a vendor prefix', () => {
+     assert.throws(_.partial(sjss.render, {
+       'body': {
+         '-moz-transform': 'translate3d()',
+       },
+     }));
+   }],
 
-  // ],
+  ],
 
-  // ['Support levels',
-  //  ['Invalid value', () => {
-  //    assert.throws(_.partial(render, {
-  //      'p': {
-  //        'white-space': 'foobar',
-  //      },
-  //    }));
-  //  }],
-  // ],
+  ['Support levels',
+
+   ['Invalid value null', () => {
+     assert.throws(_.partial(sjss.render, {
+       'p': {
+         'white-space': null,
+       },
+     }));
+   }],
+
+   ['Invalid value string', () => {
+     assert.throws(_.partial(sjss.render, {
+       'p': {
+         'white-space': 'hello',
+       },
+     }));
+   }],
+
+  ],
 
 ];
 
