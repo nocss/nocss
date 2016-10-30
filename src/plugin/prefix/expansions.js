@@ -15,6 +15,7 @@ const keyExpansions = {
 
 const keyValExpansions = {
   'display:flex': [
+    {'display': 'flex'},
     {'display': '-webkit-flex'},
     {'display': '-ms-flexbox'},
   ],

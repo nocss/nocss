@@ -21,7 +21,7 @@ module.exports = [
       }, 'body {\n  -moz-transform: translate3d();\n}'));
     }],
    ],
-   ['Value checking',    
+   ['Value checking',
     ['Invalid value null', () => {
       assert.throws(_.partial(sjss.render, {
         'p': {
