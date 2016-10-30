@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/o3js/css.git"
+    "url": "git+https://github.com/o3js/sjss.git"
   },
   "keywords": [
     "css"
@@ -16,9 +16,9 @@
   "author": "Gabriel Silk <gabesilk@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/o3js/css/issues"
+    "url": "https://github.com/o3js/sjss/issues"
   },
-  "homepage": "https://github.com/o3js/css#readme",
+  "homepage": "https://github.com/o3js/sjss#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "jsdom": "^9.4.1",
@@ -26,3 +26,4 @@
     "mocha-brackets": "0.0.1"
   }
 }
+
