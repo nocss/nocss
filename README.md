@@ -1,5 +1,7 @@
 # Summary
-Write CSS in Javascript. SJSS is a small, fast, js->css compiler with automatic enforcement of browser support levels. Need to support IE 8? SJSS will make sure you do.
+Write CSS in Javascript.
+
+SJSS is a small, fast, js->css compiler with automatic enforcement of browser support levels. Need to support IE 8? SJSS will make sure you do.
 
 ## Background
 Pure CSS is hard to maintain. This has given rise to a plethora of frameworks, including sass, less, stylus, PostCSS, etc. These frameworks are great, but there was clearly room for simplification, both in language choice and feature set. We chose the most pressing problems with css, and wrote a library to address those, whose core is 35 lines long (excluding vendor prefix data).
