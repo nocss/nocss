@@ -1,6 +1,6 @@
 const assert = require('chai').assert;
 const sjss = require('../../index')();
-sjss.use(require('./index'));
+sjss.use(require('./index')());
 
 module.exports = [
   ['Prefix expansions',
