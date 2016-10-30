@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const _ = require('lodash');
 const sjss = require('../../index')();
-sjss.use(require('./index')());
+sjss.use(require('./index')({}));
 
 module.exports = [
   ['Support levels',
