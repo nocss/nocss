@@ -1,7 +1,5 @@
 # Summary
-Write CSS in Javascript.
-
-NoCSS is a small, fast, js->css compiler with automatic enforcement of browser support levels. Need to support IE 8? NoCSS will make sure you do.
+NoCSS is a small, fast, js->css compiler. It lets you write all your css in Javascript. It also has automatic enforcement of browser support levels. Need to support IE 8? NoCSS will make sure you do.
 
 ## Background
 Pure CSS is hard to maintain. This has given rise to a plethora of frameworks, including sass, less, stylus, PostCSS, etc. These frameworks are great, but there was clearly room for simplification, both in language choice and feature set. We chose the most pressing problems with css, and wrote a library to address those, whose core is 35 lines long (excluding vendor prefix data).
