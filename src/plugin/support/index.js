@@ -55,12 +55,14 @@ function checkSupported(key, val, supportLevels) {
   }
   if (record.support === true) return;
   _.each(supportLevels, (version, browser) => {
-    if (record.support[browser] === true) return true;
-    if (record.support[browser] === false) {
+    let vsn = record.support[browser];
+    if (vsn === true) return true;
+    if (vsn === false) {
       throw new Error(`${browser} does not support the "${key}" property in any version`);
     }
-    if (record.support[browser] > version) {
-      throw new Error(`${browser} did not support the "${key}" property until version "${record.support[browser]}"`);
+    if (_.isPlainObject(vsn) && vsn.version) vsn = vsn.version;
+    if (_.isString(vsn) && vsn > version) {
+      throw new Error(`${browser} did not support the "${key}" property until version "${vsn}"`);
     }
   });
 }
