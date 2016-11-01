@@ -71,7 +71,6 @@ nocss.render({
 ```
 
 ## NoCSS vs PostCSS
-Backend
 (coming soon)
 
 ## Sources
