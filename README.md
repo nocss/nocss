@@ -9,7 +9,7 @@ Because of its diminutive size, you can embed it in your frontend code and rende
 Here's an example of NoCSS in action:
 
 ```javascript
-const nocss = require('nocssjs');
+const nocss = require('nocssjs')();
 
 // Generate a valid css string (prefix expansions are handled for you)
 const styleString = nocss.render({
