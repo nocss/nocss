@@ -2,7 +2,7 @@
 NoCSS is a small, fast, js->css compiler. It lets you write all your css in Javascript. It also has automatic enforcement of browser support levels. Need to support IE 8? NoCSS will make sure you do.
 
 ## Background
-Pure CSS is hard to maintain. This has given rise to a plethora of frameworks, including sass, less, stylus, PostCSS, etc. These frameworks are great, but there was clearly room for simplification, both in language choice and feature set. We chose the most pressing problems with css, and wrote a library to address those, whose core is 35 lines long (excluding vendor prefix data).
+Pure CSS is hard to maintain. This has given rise to a plethora of frameworks, including sass, less, stylus, PostCSS, etc. These frameworks are great, but there was clearly room for simplification, both in language choice and feature set. We chose the most pressing problems with css, and wrote a library to address those, whose core is [less than 50 lines of code](src/index.js).
 
 Because of its diminutive size, you can embed it in your frontend code and render css at runtime. Because it's in ES6, it's easy to debug, see how the library works and to augment it to your needs. The goal was to make the simplest, lightest css processor, which could be used at compile-time or run-time.
 

@@ -26,9 +26,8 @@ module.exports = function sjss() {
       });
   }
 
-  function transformValue(v) {
-    return (_.isString(v) && v.length === 0) ? '\'\'' : v;
-  }
+  const transformValue = (v) =>
+        ((_.isString(v) && v.length === 0) ? '\'\'' : v);
 
   function render(obj) {
     const result = {};
