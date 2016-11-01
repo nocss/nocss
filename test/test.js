@@ -1,12 +1,12 @@
 const assert = require('chai').assert;
-const sjss = require('../src')();
+const nocss = require('../src')();
 
 module.exports = [
 
   ['Basics',
 
    ['Single selector and attribute', () => {
-     assert.equal(sjss.render({
+     assert.equal(nocss.render({
        'body': {
          'background-color': 'red',
        },
@@ -14,12 +14,12 @@ module.exports = [
    }],
 
    ['Pseudo-selectors', () => {
-     assert.equal(sjss.render({
+     assert.equal(nocss.render({
        'div:before': {
          'color': 'red',
        },
      }), 'div:before {\n  color: red;\n}');
-     assert.equal(sjss.render({
+     assert.equal(nocss.render({
        'div': {
          '&:before': {
            'color': 'red',
@@ -29,7 +29,7 @@ module.exports = [
    }],
 
    ['Star selector', () => {
-     assert.equal(sjss.render({
+     assert.equal(nocss.render({
        '*': {
          'display': 'none',
        },
@@ -37,7 +37,7 @@ module.exports = [
    }],
 
    ['Empty string', () => {
-     assert.equal(sjss.render({
+     assert.equal(nocss.render({
        'body': {
          'content': '',
        },
@@ -45,7 +45,7 @@ module.exports = [
    }],
 
    ['Multiple property values', () => {
-     assert.equal(sjss.render({
+     assert.equal(nocss.render({
        'div': {
          'content': ['', 'none'],
        },
@@ -56,7 +56,7 @@ module.exports = [
   ['Grouping',
 
    ['Basic grouping', () => {
-     assert.equal(sjss.render({
+     assert.equal(nocss.render({
        'h1,h2': {
          'color': 'blue',
        },
@@ -64,7 +64,7 @@ module.exports = [
    }],
 
    ['Grouping with "&" operator and pseudo-selector', () => {
-     assert.equal(sjss.render({
+     assert.equal(nocss.render({
        'h1': {
          '&:before,&:after': {
            'color': 'green',

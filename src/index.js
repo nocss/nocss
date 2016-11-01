@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-module.exports = function sjss() {
+module.exports = function nocssCoreFactory() {
   const plugins = [];
 
   function use(plugin) {

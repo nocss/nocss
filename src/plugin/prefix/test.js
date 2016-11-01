@@ -1,11 +1,11 @@
 const assert = require('chai').assert;
-const sjss = require('../../index')();
-sjss.use(require('./index')());
+const nocss = require('../../index')();
+nocss.use(require('./index')());
 
 module.exports = [
   ['Prefix expansions',
    ['Basics', () => {
-     assert.equal(sjss.render({
+     assert.equal(nocss.render({
        'div': {
          'border-radius': '3px',
        },
