@@ -11,6 +11,16 @@ Here's an example of NoCSS in action:
 ```javascript
 const nocss = require('nocssjs')();
 
+// Use the auto-prefixer plugin
+nocss.use(require('nocssjs/src/plugin/prefix')());
+
+// Use the browser support plugin, ensuring that we
+// support ie >= 8 and firefox >= 40
+nocss.use(require('nocssjs/src/plugin/support')({
+  ie: 8,
+  firefox: 40
+}));
+
 // Generate a valid css string (prefix expansions are handled for you)
 const styleString = nocss.render({
   'body': {
@@ -61,6 +71,7 @@ nocss.render({
 ```
 
 ## NoCSS vs PostCSS
+Backend
 (coming soon)
 
 ## Sources
