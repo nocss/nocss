@@ -4,7 +4,7 @@ NoCSS is a small, fast, Javascript to CSS compiler. It's written in ES6 and has 
 ## Background
 Pure CSS is hard to maintain. This has given rise to a plethora of frameworks, including sass, less, stylus, PostCSS, etc. These frameworks are great, but none of them has been built from the ground up on a simple Javascript DSL -- a design choice which lends speed, simplicity, and economy of space to the entire project.
 
-The core engine in NoCSSS is [less than 50 lines of code](src/index.js). It does not have to parse CSS, build and then execute transforms on an abstract syntax tree (like PostCSS). Because of its diminutive size, you can embed NoCSS in your frontend code and render CSS from Javascript at runtime. It turns out this is a useful ability in many situations, particularly as UIs become more complex. 
+The core engine in NoCSS is [less than 50 lines of code](src/index.js). It does not have to parse CSS, build and then execute transforms on an abstract syntax tree (like PostCSS). Because of its diminutive size, you can embed NoCSS in your frontend code and render CSS from Javascript at runtime. It turns out this is a useful ability in many situations, particularly as UIs become more complex. 
 
 Because it's in ES6, it's easy to debug, see how the library works and to augment it to your needs. The goal was to make the simplest, lightest-weight CSS processor, which could be used at compile-time or run-time.
 
