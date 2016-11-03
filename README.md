@@ -1,4 +1,4 @@
-# Summary
+# NoCSS [![Build Status](https://travis-ci.org/nocss/nocss.svg?branch=master)](https://travis-ci.org/nocss/nocss)
 NoCSS is a small, fast, js->css compiler. It lets you write all your css in Javascript. It also has automatic enforcement of browser support levels. Need to support IE 8? NoCSS will make sure you do.
 
 ## Background
