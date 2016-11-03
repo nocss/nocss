@@ -1,10 +1,12 @@
-# Summary
-NoCSS is a small, fast, js->css compiler. It lets you write all your css in Javascript. It also has automatic enforcement of browser support levels. Need to support IE 8? NoCSS will make sure you do.
+# NoCSS [![Build Status](https://travis-ci.org/nocss/nocss.svg?branch=master)](https://travis-ci.org/nocss/nocss)
+NoCSS is a small, fast, Javascript to CSS compiler. It's written in ES6 and has a growing library of plugins, including auto-prefixer and support-level-enforcer (need your CSS support IE 8? This plugin will ensure that it happens).
 
 ## Background
-Pure CSS is hard to maintain. This has given rise to a plethora of frameworks, including sass, less, stylus, PostCSS, etc. These frameworks are great, but there was clearly room for simplification, both in language choice and feature set. We chose the most pressing problems with css, and wrote a library to address those, whose core is [less than 50 lines of code](src/index.js).
+Pure CSS is hard to maintain. This has given rise to a plethora of frameworks, including sass, less, stylus, PostCSS, etc. These frameworks are great, but none of them has been built from the ground up using Javascript -- a design choise which lends speed, simplicity, and economy of space to the entire project.
 
-Because of its diminutive size, you can embed it in your frontend code and render css at runtime. Because it's in ES6, it's easy to debug, see how the library works and to augment it to your needs. The goal was to make the simplest, lightest css processor, which could be used at compile-time or run-time.
+The core engine in NoCSSS is [less than 50 lines of code](src/index.js). It does not have to parse CSS, build and then execute transforms on an abstract syntax tree (like PostCSS). Because of its diminutive size, you can embed NoCSS in your frontend code and render CSS from Javascript at runtime. It turns out this is a useful ability in many situations, particularly as UIs become more complex. 
+
+Because it's in ES6, it's easy to debug, see how the library works and to augment it to your needs. The goal was to make the simplest, lightest-weight CSS processor, which could be used at compile-time or run-time.
 
 Here's an example of NoCSS in action:
 
