@@ -1,5 +1,5 @@
 # NoCSS [![Build Status](https://travis-ci.org/nocss/nocss.svg?branch=master)](https://travis-ci.org/nocss/nocss)
-NoCSS is a small, fast, Javascript to CSS compiler. It's written in ES6 and has a growing library of plugins, including auto-prefixer and support-level-enforcer (need your CSS support IE 8? This plugin will ensure that it happens).
+NoCSS is a small, fast, Javascript to CSS compiler. It's written in ES6 and has a growing library of plugins, including auto-prefixer and support-level-enforcer (need your CSS to support IE 8? This plugin will ensure that it happens).
 
 ## Background
 Pure CSS is hard to maintain. This has given rise to a plethora of frameworks, including sass, less, stylus, PostCSS, etc. These frameworks are great, but none of them has been built from the ground up using Javascript -- a design choise which lends speed, simplicity, and economy of space to the entire project.
