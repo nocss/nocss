@@ -241,8 +241,9 @@ module.exports = {
     },
   }],
   'display': [{
-    values: ['none', 'inline', 'block', 'list-item'],
+    values: ['none', 'inline', 'block', 'inline-block', 'list-item', 'flex'],
     support: true,
+    // TODO: add support levels for display: flex
   }],
   'empty-cells': [{
     values: ['show', 'hide', 'initial', 'inherit'],
