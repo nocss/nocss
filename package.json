@@ -1,6 +1,6 @@
 {
   "name": "nocssjs",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "NoCSS -- stop writing CSS, just use Javascript",
   "main": "src/index.js",
   "scripts": {
