@@ -54,14 +54,13 @@ module.exports = function nocssCoreFactory() {
       (val, key) => {
         return key + ' {\n' + renderShallow(val) + '\n}';
       }).join('\n');
-    console.log('media queries are', mediaQueries);
     return [
       renderShallow(
         _.omitBy(obj, (val, key) => {
           return key[0] === '@';
         })),
       mediaQueries
-    ].join('\n');
+    ].join('\n').trim();
   }
 
   return { render, use };
