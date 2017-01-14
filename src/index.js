@@ -11,8 +11,9 @@ module.exports = function nocssCoreFactory() {
     _.each(
       _.pickBy(obj, _.isPlainObject),
       (val, key) => _.each(
-        key.split(','), ks =>
-          toCSSRecursive(val, _.flatten([ns, ks]), result)));
+        key.split(','), ks => {
+          toCSSRecursive(val, _.flatten([ns, ks]), result)
+        }));
     _.each(
       _.omitBy(obj, _.isPlainObject),
       (val, key) => {
@@ -29,7 +30,7 @@ module.exports = function nocssCoreFactory() {
   const transformValue = (v) =>
         ((_.isString(v) && v.length === 0) ? '\'\'' : v);
 
-  function render(obj) {
+  function renderShallow(obj) {
     const result = {};
     toCSSRecursive(obj, [], result);
     return _.map(result, (val, key) => {
@@ -43,6 +44,24 @@ module.exports = function nocssCoreFactory() {
       });
       return `${key} {\n${inner}}`;
     }).join('\n');
+  }
+
+  function render(obj) {
+    const mediaQueries = _.map(
+      _.pickBy(obj, (val, key) => {
+        return key[0] === '@';
+      }),
+      (val, key) => {
+        return key + ' {\n' + renderShallow(val) + '\n}';
+      }).join('\n');
+    console.log('media queries are', mediaQueries);
+    return [
+      renderShallow(
+        _.omitBy(obj, (val, key) => {
+          return key[0] === '@';
+        })),
+      mediaQueries
+    ].join('\n');
   }
 
   return { render, use };

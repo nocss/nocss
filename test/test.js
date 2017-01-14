@@ -73,6 +73,17 @@ module.exports = [
      }), 'h1:before {\n  color: green;\n}\nh1:after {\n  color: green;\n}');
    }],
   ],
+
+  ['Media queries',
+   ['Basic media query', () => {
+     assert.equal(nocss.render({
+       '@media (min-width:400px)': {
+         'h1': {
+           'color': 'green',
+         },
+       },
+     }), '@media (min-width:400px) {\nh1 {\n  color: green;\n}\n}');
+   }]],
 ];
 
 // // valid selectors
